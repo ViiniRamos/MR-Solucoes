@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const dados = {
             nome: form.nome.value.trim(),
             telefone: form.telefone.value.trim(),
+            email: form.email.value.trim(),
             problema: form.problema.value.trim(),
         };
 

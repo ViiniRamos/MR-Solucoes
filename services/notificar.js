@@ -8,19 +8,28 @@ const transporter = nodemailer.createTransport({
     },
 });
 
-async function notificarDono({ nome, telefone, problema, analise }) {
+async function notificarDono({ nome, telefone, email, problema, analise }) {
     const destino = process.env.EMAIL_DESTINO || process.env.GMAIL_USER;
 
     await transporter.sendMail({
         from: process.env.GMAIL_USER,
+
         to: destino,
+
         subject: `Novo pedido de orçamento - urgência ${analise.urgencia}`,
+
         text: `Nome: ${nome}
+
 Telefone: ${telefone}
+
+Email: ${email}
+
 Problema descrito: ${problema}
 
 Urgência: ${analise.urgencia}
+
 Causa provável: ${analise.causaProvavel}
+
 Materiais prováveis: ${analise.materiaisProvaveis.join(", ")}
 
 Orçamento provável: ${analise.orcamentoProvavel}`,
