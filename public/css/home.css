@@ -344,6 +344,10 @@ address{
     overflow: hidden;
 }
 
+.gallery-placeholder.gallery-placeholder-top{
+    align-items: start;
+}
+
 .gallery-placeholder::after{
     content: "";
     position: absolute;
